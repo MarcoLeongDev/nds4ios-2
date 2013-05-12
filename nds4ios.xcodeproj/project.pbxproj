@@ -300,7 +300,6 @@
 		CEB43C41173FCA3F00055F91 /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLProgram.m; path = Classes/GLProgram.m; sourceTree = "<group>"; };
 		CEB43C43173FD25900055F91 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		CEB43C44173FD25900055F91 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		CEB43C47173FE01100055F91 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CEC742F916776248006D193E /* nds4ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nds4ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -587,7 +586,6 @@
 		CEC742EE16776248006D193E = {
 			isa = PBXGroup;
 			children = (
-				CEB43C47173FE01100055F91 /* .gitignore */,
 				CE2EE60C173F6C1E00786468 /* nds4droid-code */,
 				CE2EE5F4173F66D100786468 /* Classes */,
 				CEC7430416776248006D193E /* Supporting Files */,

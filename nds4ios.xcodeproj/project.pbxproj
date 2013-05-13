@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9380AE91740DA1A00EEC4FC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9380AE81740DA1A00EEC4FC /* Default-568h@2x.png */; };
 		CE2EE5EB173F661D00786468 /* nds4ios-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE2EE5EA173F661D00786468 /* nds4ios-Info.plist */; };
 		CE2EE5EE173F663B00786468 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EE5EC173F663B00786468 /* main.m */; };
 		CE2EE5FD173F66E300786468 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EE5F6173F66E300786468 /* AppDelegate.m */; };
@@ -114,6 +115,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9380AE81740DA1A00EEC4FC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE2EE5EA173F661D00786468 /* nds4ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "nds4ios-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CE2EE5EC173F663B00786468 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = SOURCE_ROOT; };
 		CE2EE5ED173F663B00786468 /* nds4ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "nds4ios-Prefix.pch"; path = "Classes/nds4ios-Prefix.pch"; sourceTree = SOURCE_ROOT; };
@@ -586,6 +588,7 @@
 		CEC742EE16776248006D193E = {
 			isa = PBXGroup;
 			children = (
+				C9380AE81740DA1A00EEC4FC /* Default-568h@2x.png */,
 				CE2EE60C173F6C1E00786468 /* nds4droid-code */,
 				CE2EE5F4173F66D100786468 /* Classes */,
 				CEC7430416776248006D193E /* Supporting Files */,
@@ -665,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2EE5EB173F661D00786468 /* nds4ios-Info.plist in Resources */,
+				C9380AE91740DA1A00EEC4FC /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -282,10 +282,10 @@ const float textureVert[] =
     UITouch* touch = [touches anyObject];
     CGPoint point = [touch locationInView:self.view];
     
-    if (point.y < 240.0f) return;
+    if (point.y < self.glkView.bounds.size.height/2.0f) return;
     
     point.x /= 1.33f;
-    point.y -= 240.0f;
+    point.y -= self.glkView.bounds.size.height/2.0f;
     point.y /= 1.33f;
     
     EMU_touchScreenTouch(point.x, point.y);
@@ -296,10 +296,10 @@ const float textureVert[] =
     UITouch* touch = [touches anyObject];
     CGPoint point = [touch locationInView:self.view];
     
-    if (point.y < 240) return;
+    if (point.y < self.glkView.bounds.size.height/2.0f) return;
     
     point.x /= 1.33;
-    point.y -= 240;
+    point.y -= self.glkView.bounds.size.height/2.0f;
     point.y /= 1.33;
     
     EMU_touchScreenTouch(point.x, point.y);

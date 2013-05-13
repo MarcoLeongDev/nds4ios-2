@@ -12,7 +12,7 @@
 		CE2EE5EB173F661D00786468 /* nds4ios-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE2EE5EA173F661D00786468 /* nds4ios-Info.plist */; };
 		CE2EE5EE173F663B00786468 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EE5EC173F663B00786468 /* main.m */; };
 		CE2EE5FD173F66E300786468 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EE5F6173F66E300786468 /* AppDelegate.m */; };
-		CE2EE5FE173F66E300786468 /* emu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE2EE5F7173F66E300786468 /* emu.cpp */; };
+		CE2EE5FE173F66E300786468 /* emu.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EE5F7173F66E300786468 /* emu.mm */; };
 		CE2EE5FF173F66E300786468 /* EmuViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE2EE5FA173F66E300786468 /* EmuViewController.mm */; };
 		CE2EE600173F66E300786468 /* RomsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2EE5FC173F66E300786468 /* RomsViewController.m */; };
 		CE2EE604173F6BBA00786468 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2EE603173F6BBA00786468 /* Foundation.framework */; };
@@ -123,7 +123,7 @@
 		CE2EE5ED173F663B00786468 /* nds4ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "nds4ios-Prefix.pch"; path = "Classes/nds4ios-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		CE2EE5F5173F66E300786468 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		CE2EE5F6173F66E300786468 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		CE2EE5F7173F66E300786468 /* emu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = emu.cpp; path = Classes/emu.cpp; sourceTree = SOURCE_ROOT; };
+		CE2EE5F7173F66E300786468 /* emu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = emu.mm; path = Classes/emu.mm; sourceTree = SOURCE_ROOT; };
 		CE2EE5F8173F66E300786468 /* emu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = emu.h; path = Classes/emu.h; sourceTree = SOURCE_ROOT; };
 		CE2EE5F9173F66E300786468 /* EmuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmuViewController.h; path = Classes/EmuViewController.h; sourceTree = SOURCE_ROOT; };
 		CE2EE5FA173F66E300786468 /* EmuViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EmuViewController.mm; path = Classes/EmuViewController.mm; sourceTree = SOURCE_ROOT; };
@@ -336,7 +336,7 @@
 				CE34A128173F769200C51EA1 /* nullJit.h */,
 				CE2EE5F5173F66E300786468 /* AppDelegate.h */,
 				CE2EE5F6173F66E300786468 /* AppDelegate.m */,
-				CE2EE5F7173F66E300786468 /* emu.cpp */,
+				CE2EE5F7173F66E300786468 /* emu.mm */,
 				CE2EE5F8173F66E300786468 /* emu.h */,
 				CE2EE5FB173F66E300786468 /* RomsViewController.h */,
 				CE2EE5FC173F66E300786468 /* RomsViewController.m */,
@@ -685,7 +685,7 @@
 			files = (
 				CE2EE5EE173F663B00786468 /* main.m in Sources */,
 				CE2EE5FD173F66E300786468 /* AppDelegate.m in Sources */,
-				CE2EE5FE173F66E300786468 /* emu.cpp in Sources */,
+				CE2EE5FE173F66E300786468 /* emu.mm in Sources */,
 				CE2EE5FF173F66E300786468 /* EmuViewController.mm in Sources */,
 				CE2EE600173F66E300786468 /* RomsViewController.m in Sources */,
 				CE2EE61C173F6D6300786468 /* slot1_none.cpp in Sources */,

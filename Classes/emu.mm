@@ -218,8 +218,50 @@ void EMU_loadSettings()
 	CommonSettings.GFX3D_Texture = 1;
 	CommonSettings.GFX3D_LineHack = 0;
 	useMmapForRomLoading = true;
-	fw_config.language = 1;
 	enableMicrophone = false;
+    
+    /*
+     * The firmware language values
+    #define NDS_FW_LANG_JAP 0
+    #define NDS_FW_LANG_ENG 1
+    #define NDS_FW_LANG_FRE 2
+    #define NDS_FW_LANG_GER 3
+    #define NDS_FW_LANG_ITA 4
+    #define NDS_FW_LANG_SPA 5
+    #define NDS_FW_LANG_CHI 6
+    #define NDS_FW_LANG_RES 7
+     */
+    
+    for (NSString *language in [NSLocale preferredLanguages]) {
+        if ([language caseInsensitiveCompare:@"JA"]) {
+            fw_config.language = 0;
+            break;
+        } else if ([language caseInsensitiveCompare:@"EN"]) {
+            fw_config.language = 1;
+            break;
+        } else if ([language caseInsensitiveCompare:@"FR"]) {
+            fw_config.language = 2;
+            break;
+        } else if ([language caseInsensitiveCompare:@"DE"]) {
+            fw_config.language = 3;
+            break;
+        } else if ([language caseInsensitiveCompare:@"IT"]) {
+            fw_config.language = 4;
+            break;
+        } else if ([language caseInsensitiveCompare:@"ES"]) {
+            fw_config.language = 5;
+            break;
+        } else if ([language caseInsensitiveCompare:@"ZH"]) {
+            fw_config.language = 6;
+            break;
+        } /*else if ([language caseInsensitiveCompare:@"EN"]) {
+            fw_config.language = 7;
+        } RES? */
+        
+        //default eng
+        fw_config.language = 1;
+    }
+    
 }
 
 void nds4droid_unpause()

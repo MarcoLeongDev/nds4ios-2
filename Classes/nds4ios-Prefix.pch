@@ -38,3 +38,4 @@
 #endif
 
 #define HAVE_LIBZ
+#define EXPERIMENTAL_WIFI_COMM

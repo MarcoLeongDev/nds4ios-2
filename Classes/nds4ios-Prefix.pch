@@ -36,3 +36,5 @@
     #include "nullJit.h"
 
 #endif
+
+#define HAVE_LIBZ

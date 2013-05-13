@@ -362,7 +362,7 @@ const float textureVert[] =
             [self loadState:state];
             return;
         }
-        if ([title isEqualToString:[@"Override: " stringByAppendingString:state]]) {
+        if ([title isEqualToString:[@"To: " stringByAppendingString:state]]) {
             [self saveState:state];
             return;
         }
@@ -370,11 +370,11 @@ const float textureVert[] =
     
     if ([title isEqualToString:@"Save State"]) {
         
-        UIActionSheet *saveStateMenu = [[UIActionSheet alloc] initWithTitle:@"Save State To.." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+        UIActionSheet *saveStateMenu = [[UIActionSheet alloc] initWithTitle:@"Save State" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
         
         [saveStateMenu addButtonWithTitle:@"New Save State"];
         for (NSString *state in saveStates) {
-            [saveStateMenu addButtonWithTitle:[@"Override: " stringByAppendingString:state]];
+            [saveStateMenu addButtonWithTitle:[@"To: " stringByAppendingString:state]];
         }
         
         return;

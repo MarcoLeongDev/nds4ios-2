@@ -61,7 +61,7 @@ const float textureVert[] =
     1.0f, 1.0f
 };
 
-@interface EmuViewController () <GLKViewDelegate>
+@interface EmuViewController () <GLKViewDelegate, UIActionSheetDelegate>
 {
     int fps;
     
@@ -263,14 +263,19 @@ const float textureVert[] =
     UIButton* buttonStart = [UIButton buttonWithId:BUTTON_START atCenter:CGPointMake(186, 228)];
     [self.view addSubview:buttonStart];
     
-    UIButton* buttonExit = [UIButton buttonWithId:(BUTTON_ID)-1 atCenter:CGPointMake(160, 20)];
-    [buttonExit addTarget:self action:@selector(buttonExitDown:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:buttonExit];
+    //UIButton* buttonExit = [UIButton buttonWithId:(BUTTON_ID)-1 atCenter:CGPointMake(160, 20)];
+    //[buttonExit addTarget:self action:@selector(buttonExitDown:) forControlEvents:UIControlEventTouchUpInside];
+    //[self.view addSubview:buttonExit];
     
     UIButton* buttonShift = [UIButton buttonWithId:(BUTTON_ID)-1 atCenter:CGPointMake(290, 20)];
     [buttonShift addTarget:self action:@selector(shiftButtons:) forControlEvents:UIControlEventTouchUpInside];
     [buttonShift setTitle:@"Shift Pad" forState:UIControlStateNormal];
     [self.view addSubview:buttonShift];
+    
+    UIButton* buttonMenu = [UIButton buttonWithId:(BUTTON_ID)-1 atCenter:CGPointMake(160, 20)];
+    [buttonMenu addTarget:self action:@selector(openPreferences:) forControlEvents:UIControlEventTouchUpInside];
+    [buttonMenu setTitle:@"Menu" forState:UIControlStateNormal];
+    [self.view addSubview:buttonMenu];
     
     self.buttonsArray = @[buttonUp,buttonDown,buttonLeft,buttonRight,
                           buttonX,buttonY,buttonA,buttonB,
@@ -321,6 +326,84 @@ const float textureVert[] =
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)openMenu:(id)sender {
+    UIActionSheet *menu = [[UIActionSheet alloc]
+                             initWithTitle: @"InGame Menu"
+                             delegate:self
+                             cancelButtonTitle:@"Cancel"
+                             destructiveButtonTitle:@"Quit ROM"
+                             otherButtonTitles:@"Save State", @"Load State", nil];
+    [menu showInView:self.view];
+}
+
+// abfangen welcher Eintrag gewählt wurde und aufräumen
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIdx
+{
+    if (buttonIdx == [actionSheet cancelButtonIndex]) {
+        return;
+    }
+    
+    if (buttonIdx == [actionSheet destructiveButtonIndex]) {
+        [self buttonExitDown:actionSheet];
+        return;
+    }
+    
+    NSArray *saveStates = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingString:@"/SaveStates/"] error:nil];
+    
+    NSString *title = [actionSheet buttonTitleAtIndex:buttonIdx];
+    
+    if ([title isEqualToString:@"New Save State"]) {
+        [self saveState:nil];
+        return;
+    }
+    
+    for (NSString *state in saveStates) {
+        if ([title isEqualToString:state]) {
+            [self loadState:state];
+            return;
+        }
+        if ([title isEqualToString:[@"Override: " stringByAppendingString:state]]) {
+            [self saveState:state];
+            return;
+        }
+    }
+    
+    if ([title isEqualToString:@"Save State"]) {
+        
+        UIActionSheet *saveStateMenu = [[UIActionSheet alloc] initWithTitle:@"Save State To.." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+        
+        [saveStateMenu addButtonWithTitle:@"New Save State"];
+        for (NSString *state in saveStates) {
+            [saveStateMenu addButtonWithTitle:[@"Override: " stringByAppendingString:state]];
+        }
+        
+        return;
+    }
+    if ([title isEqualToString:@"Load State"]) {
+        
+        UIActionSheet *saveStateMenu = [[UIActionSheet alloc] initWithTitle:@"Load State" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:nil];
+        
+        for (NSString *state in saveStates) {
+            [saveStateMenu addButtonWithTitle:state];
+        }
+        
+        return;
+    }
+}
+
+- (void)loadState:(NSString *)state {
+    EMU_loadState([[@"SaveStates" stringByAppendingFormat:@"/%@", state] cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+
+- (void)saveState:(NSString *)state {
+    const char *filename = NULL;
+    if (state == nil)
+        filename = [[@"SaveStates" stringByAppendingFormat:@"/%@.sav", [NSDate date]] cStringUsingEncoding:NSUTF8StringEncoding];
+    else
+        filename = [[@"SaveStates" stringByAppendingFormat:@"/%@", [NSDate date]] cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    EMU_saveState(filename);
+}
 
 @end
 

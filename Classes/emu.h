@@ -49,5 +49,8 @@ void EMU_closeRom();
 void EMU_buttonDown(BUTTON_ID button);
 void EMU_buttonUp(BUTTON_ID button);
 
+void EMU_loadState(const char* filename);
+void EMU_saveState(const char* filename);
+
 #endif /* defined(__nds4ios__emu__) */
 

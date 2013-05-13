@@ -557,4 +557,12 @@ void EMU_buttonUp(BUTTON_ID button)
     NDS_setPad(all_button, false, false);
 }
 
+void EMU_loadState(const char* filename) {
+    NDS_ImportSave(filename, NDS_ImportSaveSize(filename));
+}
+
+void EMU_saveState(const char* filename) {
+    NDS_ExportSave(filename);
+}
+
 
